@@ -5,7 +5,7 @@ pipeline{
     stage('Cleanup'){
       steps {
         script {
-          previousBuildNumber = currentBuildNumber -1
+          previousBuildNumber = currentBuild.number -1
           containerID = sh(returnStdout: true, script: "docker ps -a -q --filter ancestor=trhoangduc/deploy_be:${previousBuildNumber}.0")
           if(containerID != ""){
             sh "docker stop ${containerID}"
