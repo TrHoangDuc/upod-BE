@@ -16,7 +16,7 @@ pipeline{
 
     stage('Checkout code'){
       steps {
-        git branch: "main", url: "https://github.com/TrHoangDuc/upod-BE.git"
+        git branch: 'main', url: 'https://github.com/TrHoangDuc/upod-BE.git'
       }
     }
 
@@ -24,7 +24,7 @@ pipeline{
       steps {
         script {
           def dockerfilePath = "./UPOD.API/Dockerfile"
-          dockerImage = docker.build("trhoangduc/deploy_be:%{BUILD_NUMBER}.0")
+          dockerImage = docker.build("trhoangduc/deploy_be:${BUILD_NUMBER}.0")
         }
       }
     }
