@@ -41,7 +41,7 @@ pipeline{
     stage('Run Docker image'){
       steps {
         script {
-           containerID = sh(returnStdout: true, script: "docker run -d -p 5173:5173 trhoangduc/deploy_be:${BUILD_NUMBER}.0")
+           containerID = sh(returnStdout: true, script: "docker run -d -p 7000:80 trhoangduc/deploy_be:${BUILD_NUMBER}.0")
            echo "Container ID: ${containerID}" 
         }
       }
