@@ -23,6 +23,7 @@ pipeline{
     stage('Build Docker image'){
       steps {
         script {
+          def dockerfilePath = "./UPOD.API/Dockerfile"
           dockerImage = docker.build("trhoangduc/deploy_be:%{BUILD_NUMBER}.0")
         }
       }
